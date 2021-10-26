@@ -1,4 +1,4 @@
-import { List, Browse as BrowseFilter, Enum as EnumFilter, Text as TextFilter, app, post } from '@List';
+import { List, Browse as BrowseFilter, Enum as EnumFilter, Text as TextFilter, Boolean, app, post } from '@List';
 import { Browse } from '@Browse';
 import { Form, Browse as BrowseInput, Text } from '@Form';
 
@@ -52,11 +52,45 @@ const headers = <>
     <th>Value</th>
 </>
 
+const value = (item) => {
+    switch (item.typeKey) {
+        case 'Text':
+            break;
+        case 'Integer':
+            break;
+        case 'PositiveInteger':
+            break;
+        case 'Decimal':
+            break;
+        case 'Boolean':
+            return <Boolean
+                column='currentValue'
+                value={item.currentValue || false}
+                action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
+            />
+            break;
+        case 'NullableBoolean':
+            break;
+        case 'Color':
+            break;
+        case 'SingleChoice':
+            break;
+        case 'MultipleChoice':
+            break;
+        default:
+            break;
+    }
+}
+
 const row = (item) => {
     return <>
         <td>{item.configItemName}</td>
         <td>{item.typeKey}</td>
-        <td>{item.currentValue}</td>
+        <td>
+            {
+                value(item)
+            }
+        </td>
     </>
 }
 
