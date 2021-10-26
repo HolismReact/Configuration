@@ -68,6 +68,7 @@ const SystemConfigs = () => {
         headers={headers}
         row={row}
         create={CreateSystemConfig}
+        hasDelete={true}
     />
 }
 
