@@ -1,6 +1,7 @@
 import { List, Browse as BrowseFilter, Enum as EnumFilter, Text as TextFilter, Boolean, app, post } from '@List';
 import { Browse } from '@Browse';
 import { Form, Browse as BrowseInput, Text } from '@Form';
+import { SketchPicker } from 'react-color';
 
 const configItemCard = (item) => {
     return <>
@@ -72,6 +73,7 @@ const value = (item) => {
         case 'NullableBoolean':
             break;
         case 'Color':
+            <SketchPicker />
             break;
         case 'SingleChoice':
             break;
