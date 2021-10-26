@@ -1,18 +1,31 @@
 import { List, Browse as BrowseFilter, Enum as EnumFilter, Text as TextFilter, app, post } from '@List';
-import { Browser } from '@Browse';
-import { Form, Browse, Enum, Text } from '@Form';
+import { Browse } from '@Browse';
+import { Form, Browse as BrowseInput, Enum as EnumInput, Text } from '@Form';
+
+const configItemCard = (item) => {
+    return <>
+        <div>{item.name}</div>
+    </>
+}
+
+const ConfigItemBrowser = () => {
+    return <Browse
+        entity='configItem'
+        card={configItemCard}
+    />
+}
 
 const inputs = <>
-    <Browse
+    <BrowseInput
         column='configItemId'
         browser={ConfigItemBrowser}
         display={(item) => item.name}
         choose={(item) => item.id}
         required='You should choose configuration item'
     />
-    <Enum
+    <EnumInput
         column='TypeId'
-        enum='Type'
+        entity='configType'
         placeholder='Type'
     />
 </>
@@ -25,6 +38,16 @@ const CreateSystemConfig = () => {
     />
 }
 
+const headers = <>
+    <th>Name</th>
+</>
+
+const row = (item) => {
+    return <>
+        <td>{item.name}</td>
+    </>
+}
+
 const SystemConfigs = () => {
     return <List
         title="System Configs"
@@ -35,4 +58,4 @@ const SystemConfigs = () => {
     />
 }
 
-return SystemConfigs;
+export default SystemConfigs;
