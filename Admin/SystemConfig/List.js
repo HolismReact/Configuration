@@ -1,7 +1,15 @@
-import { List, Browse as BrowseFilter, Enum as EnumFilter, Text as TextFilter, Boolean, app, post } from '@List';
+import {
+    List,
+    Browse as BrowseFilter,
+    Enum as EnumFilter,
+    Text as TextFilter,
+    Boolean,
+    Color,
+    app,
+    post
+} from '@List';
 import { Browse } from '@Browse';
 import { Form, Browse as BrowseInput, Text } from '@Form';
-import { SketchPicker } from 'react-color';
 
 const configItemCard = (item) => {
     return <>
@@ -73,7 +81,11 @@ const value = (item) => {
         case 'NullableBoolean':
             break;
         case 'Color':
-            <SketchPicker />
+            return <Color
+                column='currentValue'
+                value={item.currentValue || "000"}
+                action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
+            />
             break;
         case 'SingleChoice':
             break;
