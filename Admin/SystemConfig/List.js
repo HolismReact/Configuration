@@ -3,7 +3,7 @@ import {
     Browse as BrowseFilter,
     Enum as EnumFilter,
     Text as TextFilter,
-    Boolean,
+    BooleanProperty,
     Color,
     app,
     post
@@ -72,7 +72,7 @@ const value = (item) => {
         case 'Decimal':
             break;
         case 'Boolean':
-            return <Boolean
+            return <BooleanProperty
                 column='currentValue'
                 value={item.currentValue || false}
                 action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}

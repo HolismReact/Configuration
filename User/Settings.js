@@ -1,7 +1,7 @@
 import {
     List,
     Text,
-    Boolean,
+    BooleanProperty,
     Color,
     app,
     post
@@ -30,7 +30,7 @@ const value = (item) => {
         case 'Decimal':
             break;
         case 'Boolean':
-            return <Boolean
+            return <BooleanProperty
                 column='currentValue'
                 value={item.currentValue || false}
                 action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
