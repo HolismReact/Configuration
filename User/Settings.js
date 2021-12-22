@@ -68,7 +68,7 @@ const row = (item) => {
 const Settings = () => {
     return <List
         title="Settings"
-        entity='userConfig'
+        entityType='userConfig'
         filters={filters}
         headers={headers}
         row={row}

@@ -19,7 +19,7 @@ const configItemCard = (item) => {
 
 const ConfigItemBrowser = () => {
     return <Browse
-        entity='configItem'
+        entityType='configItem'
         card={configItemCard}
     />
 }
@@ -38,7 +38,7 @@ const inputs = <>
 const CreateSystemConfig = () => {
     return <Form
         title="Create system config"
-        entity='systemConfig'
+        entityType='systemConfig'
         inputs={inputs}
     />
 }
@@ -50,7 +50,7 @@ const filters = <>
     />
     <EnumFilter
         column='TypeId'
-        entity='configType'
+        entityType='configType'
         placeholder='Type'
     />
 </>
@@ -111,7 +111,7 @@ const row = (item) => {
 const SystemConfigs = () => {
     return <List
         title="System Configs"
-        entity='systemConfig'
+        entityType='systemConfig'
         filters={filters}
         headers={headers}
         row={row}
