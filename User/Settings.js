@@ -2,9 +2,7 @@ import {
     List,
     Text,
     BooleanProperty,
-    Color,
-    app,
-    post
+    Color
 } from '@List';
 
 const filters = <>
@@ -35,7 +33,6 @@ const value = (item) => {
                 value={item.currentValue || false}
                 action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
             />
-            break;
         case 'NullableBoolean':
             break;
         case 'Color':
@@ -44,7 +41,6 @@ const value = (item) => {
                 value={item.currentValue || "000"}
                 action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
             />
-            break;
         case 'SingleChoice':
             break;
         case 'MultipleChoice':
