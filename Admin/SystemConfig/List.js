@@ -121,3 +121,4 @@ const SystemConfigs = () => {
 }
 
 export default SystemConfigs;
+export { SystemConfigs }
